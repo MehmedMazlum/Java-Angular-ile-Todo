@@ -1,35 +1,19 @@
 package com.borsa.todo.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import javax.persistence.Id;
 
+/*
+ * @created 23 February, 2021
+ * @author Halil Gatgar
+ * @project toDoList
+ */
 public class toDo {
 
-    String description;
-    int date;
+    @Getter @Setter String description;
+    @Getter @Setter int date;
     @Id
-    int id;
+    @Getter @Setter int id;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getDate() {
-        return date;
-    }
-
-    public void setDate(int date) {
-        this.date = date;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }
