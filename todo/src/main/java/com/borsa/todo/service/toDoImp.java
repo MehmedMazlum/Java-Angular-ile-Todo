@@ -28,7 +28,7 @@ public class toDoImp implements  toDoInterface {
 
     @Override
     public toDo get(String id) {
-        Optional<toDo> byId = toDoMongoRepository.findById(id);
+        Optional<toDo> byId = toDoMongoRepository.findById(String.valueOf(id));
         if(byId.isPresent()){
             toDo toDo = byId.get();
 
@@ -53,8 +53,8 @@ public class toDoImp implements  toDoInterface {
     }
 
     @Override
-    public void update(String id, String description, int date) {
-        Optional<toDo> byId = toDoMongoRepository.findById(id);
+    public void update(int id, String description, int date) {
+        Optional<toDo> byId = toDoMongoRepository.findById(String.valueOf(id));
         if(byId.isPresent()){
             toDo toDo = byId.get();
             toDo.setDescription(description);
@@ -66,7 +66,7 @@ public class toDoImp implements  toDoInterface {
     }
 
     @Override
-    public void delete(String id) {
-        toDoMongoRepository.deleteById(id);
+    public void delete(int id) {
+        toDoMongoRepository.deleteById(String.valueOf(id));
     }
 }

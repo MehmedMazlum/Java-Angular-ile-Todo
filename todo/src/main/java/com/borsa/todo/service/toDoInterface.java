@@ -13,6 +13,6 @@ public interface toDoInterface {
     toDo get(String id);
     List<toDo> list();
     void save(String description, int date);
-    void update(String id, String description, int date);
-    void delete(String id);
+    void update(int id, String description, int date);
+    void delete(int id);
 }

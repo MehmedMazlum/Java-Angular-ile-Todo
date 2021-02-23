@@ -34,14 +34,14 @@ public class toDoController {
 
         //TODO:Guncelleme islemi oldugunda bu metoda dusmesi bekleniyor
         @GetMapping(path = "/toDo/update/{id}/{description}/{date}")
-        public void updateToDo(@RequestBody String id,@RequestBody String description, @RequestBody int date) {
+        public void updateToDo(@RequestBody int id,@RequestBody String description, @RequestBody int date) {
             LOG.info("starting process for update, date:" + date + ", description=" +description);
             toDoInterface.update(id,description,date);
         }
 
     //TODO:Silme islemi oldugunda bu metoda dusmesi bekleniyor
     @GetMapping(path = "/toDo/delete/{id}")
-    public void deleteToDo(@RequestBody String id) {
+    public void deleteToDo(@RequestBody int id) {
         LOG.info("starting process for delete, id:" + id);
         toDoInterface.delete(id);
     }
@@ -56,9 +56,9 @@ public class toDoController {
 
     //TODO:Get islemi oldugunda bu metoda dusmesi bekleniyor
     @GetMapping(path = "/toDo/get/{id}")
-    public toDo getToDo(@RequestBody String id) {
+    public toDo getToDo(@RequestBody int id) {
         LOG.info("starting process for get, id:" + id);
-        toDo toDo = toDoInterface.get(id);
+        toDo toDo = toDoInterface.get(String.valueOf(id));
         return toDo;
     }
 
